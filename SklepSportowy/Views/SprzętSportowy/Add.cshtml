@@ -1,0 +1,38 @@
+﻿@model SklepSportowy.Models.SprzętSportowy
+
+<h1>Dodawanie nowych butów</h1>
+
+<form asp-controller="SprzętSportowy" asp-action="Add" method="post">
+
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+
+
+    <label asp-for="NazwaSprzętu">Nazwa Sprzętu: </label> <!-- label - tworzenie formularza  -->
+        <div>
+        <span asp-validation-for="NazwaSprzętu" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+        </div>
+    <input asp-for="NazwaSprzętu" type="text" class="form-control" />  <!-- input - wpisywanie w formularz  -->
+
+
+
+    <label asp-for="ModelSprzętu">Model: </label>
+        <div>
+        <span asp-validation-for="ModelSprzętu" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+        </div>
+    <input asp-for="ModelSprzętu" type="text" class="form-control" />
+
+
+
+
+    <label asp-for="Cena">Cena: </label>
+        <div>
+        <span asp-validation-for="Cena" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+        </div>
+    <input asp-for="Cena" type="number" class="form-control" />
+
+
+
+    <button type="submit" class="btn btn-success"> Dodaj </button>
+</form>

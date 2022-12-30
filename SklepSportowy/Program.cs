@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using SklepSportowy.Models;
+using SklepSportowy.Services;
+
 namespace SklepSportowy
 {
     public class Program
@@ -8,6 +12,17 @@ namespace SklepSportowy
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+
+
+            builder.Services.AddDbContext<AppDbContext>(
+            options => options.UseSqlServer(builder.Configuration["Data:Connection"]));
+
+            builder.Services.AddScoped<ISprzêtSportowyService, SprzêtSportowyServiceEF>();
+
+
+
 
             var app = builder.Build();
 
