@@ -11,7 +11,7 @@ using SklepSportowy.Models;
 namespace SklepSportowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221230130044_InitialCreate")]
+    [Migration("20230102202557_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
