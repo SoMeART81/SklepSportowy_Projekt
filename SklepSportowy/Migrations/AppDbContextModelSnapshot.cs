@@ -21,7 +21,7 @@ namespace SklepSportowy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SklepSportowy.Models.SprzętSportowy", b =>
+            modelBuilder.Entity("SklepSportowy.Models.SprzetSportowy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace SklepSportowy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SprzętSportowy");
+                    b.ToTable("SprzetSportowy");
                 });
 #pragma warning restore 612, 618
         }

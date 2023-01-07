@@ -11,7 +11,7 @@ using SklepSportowy.Models;
 namespace SklepSportowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230102202557_InitialCreate")]
+    [Migration("20230107195031_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace SklepSportowy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SklepSportowy.Models.SprzętSportowy", b =>
+            modelBuilder.Entity("SklepSportowy.Models.SprzetSportowy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace SklepSportowy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SprzętSportowy");
+                    b.ToTable("SprzetSportowy");
                 });
 #pragma warning restore 612, 618
         }

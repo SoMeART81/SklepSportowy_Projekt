@@ -3,12 +3,12 @@ using SklepSportowy.Models;
 
 namespace SklepSportowy.Services
 {
-    public interface ISprzętSportowyService
+    public interface ISprzetSportowyService
     {
-        public int Save(SprzętSportowy but);
+        public int Save(SprzetSportowy but);
 
         public bool Delete(int? id);
 
-        public ICollection<SprzętSportowy> FindAll();
+        public ICollection<SprzetSportowy> FindAll();
     }
 }

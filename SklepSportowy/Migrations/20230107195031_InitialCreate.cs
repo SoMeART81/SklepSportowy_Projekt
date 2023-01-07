@@ -11,7 +11,7 @@ namespace SklepSportowy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SprzętSportowy",
+                name: "SprzetSportowy",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -22,7 +22,7 @@ namespace SklepSportowy.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SprzętSportowy", x => x.Id);
+                    table.PrimaryKey("PK_SprzetSportowy", x => x.Id);
                 });
         }
 
@@ -30,7 +30,7 @@ namespace SklepSportowy.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SprzętSportowy");
+                name: "SprzetSportowy");
         }
     }
 }

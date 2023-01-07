@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SklepSportowy.Models
 {
-    public class SprzętSportowy
+    public class SprzetSportowy
     {
 
         [Key]

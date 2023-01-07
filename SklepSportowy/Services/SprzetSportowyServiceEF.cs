@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SklepSportowy.Services
 {
-    public class SprzętSportowyServiceEF : ISprzętSportowyService
+    public class SprzetSportowyServiceEF : ISprzetSportowyService
     {
         private readonly AppDbContext _context;
 
-        public SprzętSportowyServiceEF(AppDbContext context)
+        public SprzetSportowyServiceEF(AppDbContext context)
         {
             _context = context;
         }
@@ -19,26 +19,26 @@ namespace SklepSportowy.Services
                 return false;
             }
 
-            var find = _context.SprzętSportowy.Find(id);
+            var find = _context.SprzetSportowy.Find(id);
             if (find is not null)
             {
-                _context.SprzętSportowy.Remove(find);
+                _context.SprzetSportowy.Remove(find);
                 _context.SaveChanges();
                 return true;
             }
             return false;
         }
 
-        public ICollection<SprzętSportowy> FindAll()
+        public ICollection<SprzetSportowy> FindAll()
         {
-            return _context.SprzętSportowy.ToList();
+            return _context.SprzetSportowy.ToList();
         }
 
-        public int Save(SprzętSportowy sprzętSportowy)
+        public int Save(SprzetSportowy sprzętSportowy)
         {
             try
             {
-                var entityEntry = _context.SprzętSportowy.Add(sprzętSportowy);
+                var entityEntry = _context.SprzetSportowy.Add(sprzętSportowy);
                 _context.SaveChanges();
                 return entityEntry.Entity.Id;
             }
