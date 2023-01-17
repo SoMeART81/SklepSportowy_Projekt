@@ -10,15 +10,15 @@ namespace SklepSportowy.Models
         public int Id { get; set; }
 
 
-        [Required(ErrorMessage = "Proszę podać nazwe")]
+        [Required(ErrorMessage = "Proszę podać nazwę sprzętu")]
         [StringLength(50)]
-        public string NazwaSprzętu { get; set; }
+        public string NazwaSprzetu { get; set; }
 
 
 
-        [Required(ErrorMessage = "Proszę podać nazwe!")]
+        [Required(ErrorMessage = "Proszę podać nazwę modelu")]
         [StringLength(50)]
-        public string ModelSprzętu { get; set; }
+        public string ModelSprzetu { get; set; }
 
 
         [Required(ErrorMessage = "Proszę podać cenę")]

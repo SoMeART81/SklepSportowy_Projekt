@@ -1,22 +1,26 @@
 ﻿@model List<SklepSportowy.Models.SprzetSportowy>
 
-
-
-
-
 <p class="text-center">
     <a asp-controller="SprzetSportowy" asp-action="Add" class="btn btn-primary btn-lg">Dodaj</a>
 </p>
 <table class="table">
-
+    <tr>
+        <th>Sprzęt</th>
+        <th>Model</th>
+        <th>Cena</th>
+        <th>Akcje</th>
+    </tr>
     
     @foreach (var eS in Model)
     {
         <tr>
-            
-            <td>@eS.NazwaSprzętu</td>
-            <td>@eS.ModelSprzętu</td>
+            <td>@eS.NazwaSprzetu</td>
+            <td>@eS.ModelSprzetu</td>
             <td>@eS.Cena</td>
+            <td>
+                <a asp-controller="SprzetSportowy" asp-action="Edit" asp-route-id="@eS.Id" class="btn btn-info">Edytuj</a> |
+                <a asp-controller="SprzetSportowy" asp-action="Delete" asp-route-id="@eS.Id" class="btn btn-danger">Usuń</a>
+            </td>
         </tr>
     }
 </table>

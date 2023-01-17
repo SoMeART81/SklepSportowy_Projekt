@@ -16,8 +16,8 @@ namespace SklepSportowy.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NazwaSprzętu = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ModelSprzętu = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    NazwaSprzetu = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ModelSprzetu = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Cena = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>

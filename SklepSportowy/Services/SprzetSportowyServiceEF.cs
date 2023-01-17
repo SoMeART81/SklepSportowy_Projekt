@@ -19,10 +19,10 @@ namespace SklepSportowy.Services
                 return false;
             }
 
-            var find = _context.SprzetSportowy.Find(id);
-            if (find is not null)
+            var szukaj = _context.SprzetSportowy.Find(id);
+            if (szukaj is not null)
             {
-                _context.SprzetSportowy.Remove(find);
+                _context.SprzetSportowy.Remove(szukaj);
                 _context.SaveChanges();
                 return true;
             }
@@ -45,6 +45,28 @@ namespace SklepSportowy.Services
             catch
             {
                 return -1;
+            }
+        }
+
+        public bool Update(SprzetSportowy sprzet)
+        {
+            try
+            {
+                SprzetSportowy? szukaj = _context.SprzetSportowy.Find(sprzet.Id);
+                if (szukaj is not null)
+                {
+                    szukaj.NazwaSprzetu = sprzet.NazwaSprzetu;
+                    szukaj.ModelSprzetu = sprzet.ModelSprzetu;
+                    szukaj.Cena = sprzet.Cena;
+
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return false;
             }
         }
     }

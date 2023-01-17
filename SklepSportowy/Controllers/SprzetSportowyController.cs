@@ -43,5 +43,32 @@ namespace SklepSportowy.Controllers
                 return View();
             }
         }
+
+        [Authorize(Roles = "admin")]
+        public IActionResult Delete([FromRoute] int? id)
+        {
+            _sprzetSportowyService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public IActionResult Edit([FromRoute] int? id)
+        {
+            ViewBag.Id = id;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit([FromForm] SprzetSportowy sprzet)
+        {
+            if (ModelState.IsValid)
+            {
+                _sprzetSportowyService.Update(sprzet);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(sprzet);
+        }
     }
 }

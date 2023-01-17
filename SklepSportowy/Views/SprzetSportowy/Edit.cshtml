@@ -1,0 +1,35 @@
+﻿@model SklepSportowy.Models.SprzetSportowy
+
+<h1>Edytowanie sprzętu</h1>
+
+<form asp-controller="SprzetSportowy" asp-action="Edit" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+    <label asp-for="NazwaSprzetu">Nazwa Sprzętu: </label>
+    <div>
+        <span asp-validation-for="NazwaSprzetu" class="text-danger"></span>
+    </div>
+    <input asp-for="NazwaSprzetu" type="text" class="form-control" />
+
+
+
+    <label asp-for="ModelSprzetu">Model: </label>
+    <div>
+        <span asp-validation-for="ModelSprzetu" class="text-danger"></span>
+    </div>
+    <input asp-for="ModelSprzetu" type="text" class="form-control" />
+
+
+
+
+    <label asp-for="Cena">Cena: </label>
+    <div>
+        <span asp-validation-for="Cena" class="text-danger"></span>
+    </div>
+    <input asp-for="Cena" type="number" class="form-control" />
+
+    <input asp-for="Id" value=@ViewBag.Id class="form-control" hidden/>
+
+    <button type="submit" class="btn btn-success"> Edytuj </button>
+</form>

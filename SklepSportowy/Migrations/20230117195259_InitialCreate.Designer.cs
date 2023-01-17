@@ -11,7 +11,7 @@ using SklepSportowy.Models;
 namespace SklepSportowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230107195031_InitialCreate")]
+    [Migration("20230117195259_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -35,12 +35,12 @@ namespace SklepSportowy.Migrations
                     b.Property<double>("Cena")
                         .HasColumnType("float");
 
-                    b.Property<string>("ModelSprzętu")
+                    b.Property<string>("ModelSprzetu")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("NazwaSprzętu")
+                    b.Property<string>("NazwaSprzetu")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");

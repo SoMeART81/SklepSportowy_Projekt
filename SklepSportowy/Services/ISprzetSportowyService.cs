@@ -10,5 +10,7 @@ namespace SklepSportowy.Services
         public bool Delete(int? id);
 
         public ICollection<SprzetSportowy> FindAll();
+
+        public bool Update(SprzetSportowy sprzet);
     }
 }
