@@ -1,0 +1,18 @@
+﻿@model SklepSportowy.Models.Firma
+
+<h1>Dodanie firmy </h1>
+
+<form asp-controller="SprzetSportowy" asp-action="DodanieFirmy" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+    <label asp-for="NazwaFirmy">Wpisz nazwe firmy: </label>
+    <div>
+        <span asp-validation-for="NazwaFirmy" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="NazwaFirmy" type="text" class="form-control" />
+
+    <button type="submit" class="btn btn-success"> Dodaj </button>
+
+    <input asp-for="SprzetId" type="text" value=@ViewBag.Id class="form-control" hidden />
+</form>
+    

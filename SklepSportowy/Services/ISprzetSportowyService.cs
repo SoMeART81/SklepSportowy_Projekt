@@ -12,5 +12,22 @@ namespace SklepSportowy.Services
         public ICollection<SprzetSportowy> FindAll();
 
         public bool Update(SprzetSportowy sprzet);
+
+
+
+
+        public bool DodanieFirmy(Firma firma, int id);
+
+        public SprzetSportowy? FindByFirmy(int? id);
+
+        public SprzetSportowy? FindByRelations(int? id);
+
+
+
+
+
+
+
+
     }
 }

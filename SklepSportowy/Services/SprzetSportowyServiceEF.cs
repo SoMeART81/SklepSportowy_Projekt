@@ -69,5 +69,51 @@ namespace SklepSportowy.Services
                 return false;
             }
         }
+
+        public bool DodanieFirmy(Firma firma, int id)
+        {
+            SprzetSportowy? sprzetSportowy = _context.SprzetSportowy.Include(e => e.Firmy).Where(e => e.Id == id).FirstOrDefault();
+            if (sprzetSportowy is null)
+            {
+                return false;
+            }
+
+            sprzetSportowy.Firmy.Add(firma);
+            _context.SprzetSportowy.Update(sprzetSportowy);
+            _context.SaveChanges();
+
+            return true;
+        }
+
+
+        public SprzetSportowy? FindByFirmy(int? id)
+        {
+            SprzetSportowy? sprzetSportowy = _context.SprzetSportowy.Include(e => e.Firmy).Where(e => e.Id == id).FirstOrDefault();
+            if (id is null)
+            {
+                return null;
+            }
+            else
+            {
+                return sprzetSportowy;
+            }
+        }
+
+
+
+
+        public SprzetSportowy? FindByRelations(int? id)
+        {
+            return id is null ? null : _context.SprzetSportowy.Include(p => p.Firmy).Where(p => p.Id == id).FirstOrDefault();
+        }
+
+
+
+
+
+
+
+
+
     }
 }

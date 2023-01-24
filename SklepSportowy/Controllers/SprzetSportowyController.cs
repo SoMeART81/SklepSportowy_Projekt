@@ -21,7 +21,6 @@ namespace SklepSportowy.Controllers
         }
 
 
-        //Dodawanie 
 
         [HttpGet]
         [Authorize(Roles = "admin")]
@@ -70,5 +69,43 @@ namespace SklepSportowy.Controllers
             }
             return View(sprzet);
         }
+
+
+
+
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult DodanieFirmy([FromRoute] int id)
+        {
+            ViewBag.Id = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DodanieFirmy([FromForm] Firma firma)
+        {
+            if (ModelState.IsValid)
+            {
+                firma.DzienDodania = DateTime.Now;
+                _sprzetSportowyService.DodanieFirmy(firma, firma.SprzetId);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(firma);
+            }
+        }
+
+        public IActionResult Firma([FromRoute] int id)
+        {
+            return View(_sprzetSportowyService.FindByFirmy(id));
+        }
+
+
+
+
+
     }
 }
