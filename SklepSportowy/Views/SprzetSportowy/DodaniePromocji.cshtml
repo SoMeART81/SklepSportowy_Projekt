@@ -1,0 +1,27 @@
+﻿@model SklepSportowy.Models.Promocja
+
+<h1>Dodanie firmy </h1>
+
+<form asp-controller="SprzetSportowy" asp-action="DodaniePromocji" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+    <label asp-for="NazwaPromocji">Wpisz nazwe promocji: </label>
+    <div>
+        <span asp-validation-for="NazwaPromocji" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="NazwaPromocji" type="text" class="form-control" />
+
+
+
+    <label asp-for="WartoscPromocji">Wpisz wartosc promocji: </label>
+    <div>
+        <span asp-validation-for="WartoscPromocji" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="WartoscPromocji" type="number" class="form-control" />
+
+
+
+    <button type="submit" class="btn btn-success"> Dodaj </button>
+
+    <input asp-for="SprzetId" type="text" value=@ViewBag.Id class="form-control" hidden />
+</form>

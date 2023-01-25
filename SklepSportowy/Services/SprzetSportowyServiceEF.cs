@@ -102,6 +102,9 @@ namespace SklepSportowy.Services
 
 
 
+
+
+
         public SprzetSportowy? FindByRelations(int? id)
         {
             return id is null ? null : _context.SprzetSportowy.Include(p => p.Firmy).Where(p => p.Id == id).FirstOrDefault();
@@ -110,6 +113,34 @@ namespace SklepSportowy.Services
 
 
 
+        public bool DodaniePromocji(Promocja promocja, int id)
+        {
+            SprzetSportowy? sprzetSportowy = _context.SprzetSportowy.Include(e => e.Promocje).Where(e => e.Id == id).FirstOrDefault();
+            if (sprzetSportowy is null)
+            {
+                return false;
+            }
+
+            sprzetSportowy.Promocje.Add(promocja);
+            _context.SprzetSportowy.Update(sprzetSportowy);
+            _context.SaveChanges();
+
+            return true;
+        }
+
+
+        public SprzetSportowy? FindByPromocja(int? id)
+        {
+            SprzetSportowy? sprzetSportowy = _context.SprzetSportowy.Include(e => e.Promocje).Where(e => e.Id == id).FirstOrDefault();
+            if (id is null)
+            {
+                return null;
+            }
+            else
+            {
+                return sprzetSportowy;
+            }
+        }
 
 
 

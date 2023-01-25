@@ -70,11 +70,6 @@ namespace SklepSportowy.Controllers
             return View(sprzet);
         }
 
-
-
-
-
-
         [HttpGet]
         [Authorize]
         public IActionResult DodanieFirmy([FromRoute] int id)
@@ -103,6 +98,45 @@ namespace SklepSportowy.Controllers
             return View(_sprzetSportowyService.FindByFirmy(id));
         }
 
+
+
+
+
+
+
+
+
+
+        /////////////////////////////////////////////////////////////////////
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult DodaniePromocji([FromRoute] int id)
+        {
+            ViewBag.Id = id;
+            return View();
+        }
+
+        
+        [HttpPost]
+        public IActionResult DodaniePromocji([FromForm] Promocja promocja)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                _sprzetSportowyService.DodaniePromocji(promocja, promocja.SprzetId);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(promocja);
+            }
+        }
+
+        public IActionResult Promocja([FromRoute] int id)
+        {
+            return View(_sprzetSportowyService.FindByPromocja(id));
+        }
 
 
 

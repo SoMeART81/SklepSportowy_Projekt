@@ -8,6 +8,7 @@ namespace SklepSportowy.Models
         public SprzetSportowy()
         {
             Firmy = new List<Firma>();
+            Promocje = new List<Promocja>();
         }
 
         [Key]
@@ -25,6 +26,13 @@ namespace SklepSportowy.Models
         [Range(0, 100000, ErrorMessage = "Proszę podać cenę, od 0 do 100 000.")]
         public double Cena { get; set; }
 
+
+
+        //////////////////////////////////////////////////////////////////
+
         virtual public List<Firma> Firmy { get; set; }
+
+        virtual public List<Promocja> Promocje { get; set; }
+
     }
 }

@@ -51,6 +51,35 @@ namespace SklepSportowy.Migrations
                     b.ToTable("Firma");
                 });
 
+            modelBuilder.Entity("SklepSportowy.Models.Promocja", b =>
+                {
+                    b.Property<int>("PromocjaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PromocjaId"));
+
+                    b.Property<string>("NazwaPromocji")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("SprzetId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SprzetSportowyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WartoscPromocji")
+                        .HasColumnType("int");
+
+                    b.HasKey("PromocjaId");
+
+                    b.HasIndex("SprzetSportowyId");
+
+                    b.ToTable("Promocja");
+                });
+
             modelBuilder.Entity("SklepSportowy.Models.SprzetSportowy", b =>
                 {
                     b.Property<int>("Id")
@@ -86,9 +115,20 @@ namespace SklepSportowy.Migrations
                     b.Navigation("SprzetSportowy");
                 });
 
+            modelBuilder.Entity("SklepSportowy.Models.Promocja", b =>
+                {
+                    b.HasOne("SklepSportowy.Models.SprzetSportowy", "SprzetSportowy")
+                        .WithMany("Promocje")
+                        .HasForeignKey("SprzetSportowyId");
+
+                    b.Navigation("SprzetSportowy");
+                });
+
             modelBuilder.Entity("SklepSportowy.Models.SprzetSportowy", b =>
                 {
                     b.Navigation("Firmy");
+
+                    b.Navigation("Promocje");
                 });
 #pragma warning restore 612, 618
         }

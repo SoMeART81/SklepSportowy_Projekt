@@ -1,0 +1,11 @@
+﻿@model SklepSportowy.Models.SprzetSportowy
+
+<h1>Promocja:</h1>
+
+@foreach (var element in Model.Promocje)
+{
+    <h4>@element.NazwaPromocji</h4>
+    <h4>@element.WartoscPromocji</h4>
+    <br />
+    <br />
+}

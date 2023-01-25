@@ -47,9 +47,35 @@ namespace SklepSportowy.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Promocja",
+                columns: table => new
+                {
+                    PromocjaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NazwaPromocji = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    WartoscPromocji = table.Column<int>(type: "int", nullable: false),
+                    SprzetId = table.Column<int>(type: "int", nullable: false),
+                    SprzetSportowyId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Promocja", x => x.PromocjaId);
+                    table.ForeignKey(
+                        name: "FK_Promocja_SprzetSportowy_SprzetSportowyId",
+                        column: x => x.SprzetSportowyId,
+                        principalTable: "SprzetSportowy",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Firma_SprzetSportowyId",
                 table: "Firma",
+                column: "SprzetSportowyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Promocja_SprzetSportowyId",
+                table: "Promocja",
                 column: "SprzetSportowyId");
         }
 
@@ -58,6 +84,9 @@ namespace SklepSportowy.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Firma");
+
+            migrationBuilder.DropTable(
+                name: "Promocja");
 
             migrationBuilder.DropTable(
                 name: "SprzetSportowy");

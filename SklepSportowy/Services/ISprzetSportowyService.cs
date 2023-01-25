@@ -25,6 +25,20 @@ namespace SklepSportowy.Services
 
 
 
+        public bool DodaniePromocji(Promocja promocja, int id);
+
+        public SprzetSportowy? FindByPromocja(int? id);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
