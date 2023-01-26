@@ -5,7 +5,7 @@ namespace SklepSportowy.Services
 {
     public interface ISprzetSportowyService
     {
-        public int Save(SprzetSportowy but);
+        public int Save(SprzetSportowy sprzet);
 
         public bool Delete(int? id);
 
