@@ -1,0 +1,15 @@
+﻿@model List<Dane>
+
+<h1>Dane o pracownikach:</h1>
+
+<p class="text-center">
+    <a asp-controller="SprzetSportowy" asp-action="DodanieDanych" class="btn btn-primary btn-lg">Wpisz dane pracownika</a>
+</p>
+
+@foreach (var element in Model)
+{
+        <p>@element.Imie</p>
+    <p>@element.Nazwisko</p>
+    <p>@element.Email</p>
+    <p>@element.NumerTelefonu</p>
+}

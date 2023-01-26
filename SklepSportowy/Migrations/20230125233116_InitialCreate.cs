@@ -12,6 +12,22 @@ namespace SklepSportowy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Dane",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Imie = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Nazwisko = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    NumerTelefonu = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dane", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SprzetSportowy",
                 columns: table => new
                 {
@@ -82,6 +98,9 @@ namespace SklepSportowy.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Dane");
+
             migrationBuilder.DropTable(
                 name: "Firma");
 

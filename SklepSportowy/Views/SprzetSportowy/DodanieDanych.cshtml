@@ -1,0 +1,41 @@
+﻿@model SklepSportowy.Models.Dane
+
+<h1>Dodanie opinii o stronie internetowej</h1>
+
+<form asp-controller="SprzetSportowy" asp-action="DodanieDanych" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+    <label asp-for="Imie">Proszę podać imie</label>
+    <div>
+        <span asp-validation-for="Imie" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="Imie" type="text" class="form-control" />
+
+
+
+
+    <label asp-for="Nazwisko">Proszę podać nazwisko</label>
+    <div>
+        <span asp-validation-for="Nazwisko" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="Nazwisko" type="text" class="form-control" />
+
+
+
+    <label asp-for="Email">Proszę podać email</label>
+    <div>
+        <span asp-validation-for="Email" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="Email" type="text" class="form-control" />
+
+
+    <label asp-for="NumerTelefonu">Proszę podać numer telefonu</label>
+    <div>
+        <span asp-validation-for="NumerTelefonu" style="font-size:16px; font-family:'Times New Roman" class="text-danger"></span>
+    </div>
+    <input asp-for="NumerTelefonu" type="number" class="form-control" />
+
+
+    <button type="submit" class="btn btn-success"> Dodaj </button>
+
+</form>

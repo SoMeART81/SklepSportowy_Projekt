@@ -31,14 +31,14 @@ namespace SklepSportowy.Services
 
         public ICollection<SprzetSportowy> FindAll()
         {
-            return _context.SprzetSportowy.ToList();
+            return _context.SprzetSportowy.Include(p => p.Firmy).Include(p => p.Promocje).ToList();
         }
 
-        public int Save(SprzetSportowy sprzętSportowy)
+        public int Save(SprzetSportowy sprzetSportowy)
         {
             try
             {
-                var entityEntry = _context.SprzetSportowy.Add(sprzętSportowy);
+                var entityEntry = _context.SprzetSportowy.Add(sprzetSportowy);
                 _context.SaveChanges();
                 return entityEntry.Entity.Id;
             }
@@ -107,7 +107,7 @@ namespace SklepSportowy.Services
 
         public SprzetSportowy? FindByRelations(int? id)
         {
-            return id is null ? null : _context.SprzetSportowy.Include(p => p.Firmy).Where(p => p.Id == id).FirstOrDefault();
+            return id is null ? null : _context.SprzetSportowy.Include(p => p.Firmy).Where(p => p.Id == id).Include(e => e.Promocje).Where(e => e.Id == id).FirstOrDefault();
         }
 
 
@@ -141,6 +141,35 @@ namespace SklepSportowy.Services
                 return sprzetSportowy;
             }
         }
+
+
+
+
+
+
+
+
+        public int DodanieDanych(Dane dane)
+        {
+            try
+            {
+                var entityEntry = _context.Dane.Add(dane);
+                _context.SaveChanges();
+                return entityEntry.Entity.Id;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public ICollection<Dane> FindAlDane()
+        {
+            return _context.Dane.ToList();
+        }
+
+
+
 
 
 

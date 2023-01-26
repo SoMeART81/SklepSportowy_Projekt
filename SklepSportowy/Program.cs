@@ -3,6 +3,7 @@ using SklepSportowy.Models;
 using SklepSportowy.Services;
 using Microsoft.AspNetCore.Identity;
 using SklepSportowy.Data;
+using System.Text.Json.Serialization;
 
 namespace SklepSportowy
 {
@@ -28,6 +29,11 @@ namespace SklepSportowy
             
 
             builder.Services.AddScoped<ISprzetSportowyService, SprzetSportowyServiceEF>();
+
+            builder.Services.AddMvc().AddJsonOptions(
+             options => options.JsonSerializerOptions.ReferenceHandler =
+            ReferenceHandler.Preserve
+            );
 
             var app = builder.Build();
 

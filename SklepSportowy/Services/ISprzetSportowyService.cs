@@ -36,7 +36,11 @@ namespace SklepSportowy.Services
 
 
 
+        public int DodanieDanych(Dane dane);
 
+
+
+        public ICollection<Dane> FindAlDane();
 
 
 

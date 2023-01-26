@@ -141,5 +141,43 @@ namespace SklepSportowy.Controllers
 
 
 
+        [HttpGet]
+        public IActionResult DodanieDanych()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DodanieDanych([FromForm] Dane dane)
+        {
+            if (ModelState.IsValid)
+            {
+                _sprzetSportowyService.DodanieDanych(dane);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(dane);
+            }
+        }
+
+
+        public IActionResult Dane()
+        {
+            return View(_sprzetSportowyService.FindAlDane());
+        }
+
+
+
+
+
+
+
+
+
+    
+
+
+
     }
 }
