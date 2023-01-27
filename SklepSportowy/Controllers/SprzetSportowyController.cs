@@ -98,15 +98,6 @@ namespace SklepSportowy.Controllers
             return View(_sprzetSportowyService.FindByFirmy(id));
         }
 
-
-
-
-
-
-
-
-
-
         /////////////////////////////////////////////////////////////////////
 
         [HttpGet]
@@ -142,6 +133,7 @@ namespace SklepSportowy.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult DodanieDanych()
         {
             return View();
@@ -166,18 +158,6 @@ namespace SklepSportowy.Controllers
         {
             return View(_sprzetSportowyService.FindAlDane());
         }
-
-
-
-
-
-
-
-
-
-    
-
-
 
     }
 }
